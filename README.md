@@ -4,7 +4,7 @@
 
 Designed for **simple, fast, and offline counting** in real farm environments.
 
-## 🚀 Version 2.0.0
+## 🚀 Version 2.0.1
 
 ### ✨ Features
 
