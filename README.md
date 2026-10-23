@@ -1,40 +1,104 @@
-# ShrimpCounter website (React + Tailwind CSS)
+# 🦐 Shrimp Counter
 
-A responsive Vite + React landing page inspired by the supplied ShrimpCounter light/dark app screenshots.
+**Shrimp Counter** is an AI-powered Android app that helps shrimp seed farms quickly count shrimp using a smartphone camera.
 
-## Features
-- React components and Tailwind CSS
-- Dark navy / violet brand styling and a light/dark website toggle
-- Custom 3D shrimp mascot used as logo and animated character
-- Interactive phone mockup inspired by the actual app
-- Small/Large seed selector, camera UI mockup, flash and zoom interactions
-- OTA app/model update messaging
-- Records, recents, calculator and camera feature highlights
-- Responsive navigation, reveal animations, reduced-motion support
-- Creator credit: Varun Padavala and mailto: padavalavarun@gmail.com
+Designed for **simple, fast, and offline counting** in real farm environments.
 
-## Run locally
-Install Node.js, then from this folder:
+## 🚀 Version 2.0.1
 
-```bash
-npm install
-npm run dev
+### ✨ Features
+
+* 📷 **Camera-based shrimp counting**
+* 🤖 **AI-powered on-device counting**
+* 🧠 Automatic model selection for different shrimp sizes
+* 🎯 **Tray positioning guide** for easier framing
+* 🔍 **1× zoom control**
+* 🕘 **Recents** with recent unsaved counts retained for 3 days
+* 📋 **Records** for saved counting results
+* 📊 Counting statistics
+* 🧮 Built-in calculator
+* ⚙️ Settings
+* 🔄 **Application updates**
+* 🧠 **AI model updates**
+* 🌙 Clean dark-mode interface
+
+## 🧭 Navigation
+
+| Section        | Purpose               |
+| -------------- | --------------------- |
+| **Recents**    | View recent counts    |
+| **Records**    | View saved counts     |
+| **Counter**    | Count shrimp          |
+| **Calculator** | Counting calculations |
+| **Settings**   | App preferences       |
+
+## 🦐 Simple Workflow
+
+```text
+Position Tray
+     ↓
+Adjust Camera
+     ↓
+Capture
+     ↓
+AI Counting
+     ↓
+View Count
+     ↓
+Save or Continue
 ```
 
-To create a production build:
+The core counting functionality works **offline**, making the app suitable for areas with limited internet connectivity.
 
-```bash
-npm run build
-npm run preview
-```
+## 📥 Installation
 
-## Important before publishing
-Open `src/App.jsx` and replace:
+Download the latest APK from **GitHub Releases**.
 
-```js
-const APK_URL = 'APK_URL'
-```
+For most modern Android phones, use the **ARM64** version.
 
-with the actual APK download URL. Until then, the Download APK button scrolls to the download section and displays a reminder. The phone preview is an interactive visual mockup; it does not access the device camera or app data.
+> **Note:** Camera and AI performance may vary depending on the device.
 
-The mascot image is `public/assets/shrimp-mascot.png`. Fonts are loaded from Google Fonts.
+## 📌 Version History
+
+### v2.0.0
+
+* Redesigned Counter screen
+* New navigation
+* Improved camera controls
+* Tray positioning guide
+* Recents and records
+* Improved statistics
+* Adaptive AI counting
+* Application and AI model updates
+* UI improvements
+
+### v1.0.4
+
+Previous development release.
+
+### v1.0.3
+
+Previous release.
+
+### v1.0.2
+
+Previous release.
+
+## 🐛 Feedback
+
+Found a problem or have a suggestion?
+
+Please report it through the repository's **Issues** section.
+
+When reporting an issue, include your:
+
+* Android device
+* Android version
+* App version
+* Description of the problem
+* Screenshot or recording, if possible
+
+---
+
+**Shrimp Counter**
+*Making shrimp seed counting simpler with AI.* 🦐
