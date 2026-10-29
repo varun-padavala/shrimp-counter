@@ -113,6 +113,8 @@ function SectionLabel({ children }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState('dark')
+  const labelCount = 2007
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -173,7 +175,7 @@ function App() {
               </div>
               <PhoneMockup light={light} />
               <div className={`absolute bottom-[7%] right-0 z-20 rounded-2xl border px-3.5 py-3 shadow-xl backdrop-blur-xl ${light ? 'border-violet-200 bg-white/95 text-[#211a3c]' : 'border-violet-200/15 bg-[#14152be8] text-white'}`}>
-                <span className="flex items-center gap-2"><span className="grid h-7 w-7 place-items-center rounded-lg bg-emerald-400/15 text-emerald-500"><Check size={15} /></span><span><b className="block text-xs">426 shrimp detected</b><span className="mt-1 block text-[10px] text-slate-400">Visual count preview</span></span></span>
+                <span className="flex items-center gap-2"><span className="grid h-7 w-7 place-items-center rounded-lg bg-emerald-400/15 text-emerald-500"><Check size={15} /></span><span><b className="block text-xs">{labelCount === null ? "Label count unavailable" : `${labelCount.toLocaleString()} shrimp labelled`}</b><span className="mt-1 block text-[10px] text-slate-400">YOLO annotation count</span></span></span>
               </div>
             </div>
           </div>
@@ -201,16 +203,16 @@ function App() {
               <div className={`rounded-[28px] border p-3 shadow-2xl shadow-black/10 sm:p-4 ${light ? 'border-violet-200 bg-white' : 'border-violet-200/15 bg-[#101225]'}`}>
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-1"><div className={`flex items-center gap-2 text-xs font-bold ${light ? 'text-[#191a31]' : 'text-white'}`}><span className={`grid h-8 w-8 place-items-center rounded-xl ${light ? 'bg-violet-100 text-violet-700' : 'bg-violet-400/15 text-violet-200'}`}><Scan size={16} /></span> Real app result</div><span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[10px] font-bold ${light ? 'border-emerald-600/20 bg-emerald-50 text-emerald-700' : 'border-emerald-400/20 bg-emerald-400/10 text-emerald-300'}`}><Check size={12}/> Detection overlay</span></div>
                 <div className={`relative aspect-[4/3] overflow-hidden rounded-[20px] ${light ? 'bg-[#e9e6d7] ring-1 ring-inset ring-violet-200 shadow-[0_8px_24px_rgba(74,55,130,.10)]' : 'bg-[#e9e6d7] ring-1 ring-inset ring-white/10'}`}>
-                  <img src="assets\shrimp-tray-labeled-preview.jpg" alt="Actual ShrimpCounter result showing shrimp seed marked with detection circles" className="h-full w-full object-contain object-center" />
-                  <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3 py-2 text-[10px] font-extrabold text-white shadow-lg"><Check size={13} /> 67 labelled shrimp</span>
+                  <img src="/assets/shrimp-tray-labeled-preview.jpg" alt="Actual ShrimpCounter result showing shrimp seed marked with detection circles" className="h-full w-full object-contain object-center" />
+                  <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3 py-2 text-[10px] font-extrabold text-white shadow-lg"><Check size={13} /> {labelCount === null ? "Labels unavailable" : `${labelCount.toLocaleString()} labelled shrimp`}</span>
                   <span className="absolute right-3 top-3 rounded-full bg-[#111329]/90 px-3 py-2 text-[10px] font-bold text-white">Label-based preview</span>
                 </div>
                 <div className="mt-3 grid grid-cols-3 gap-2">
-                  <div className={`rounded-2xl p-3 ${light ? 'bg-[#f3f0fc]' : 'bg-white/[.06]'}`}><span className={`block text-[10px] ${light ? 'text-slate-600' : 'text-slate-400'}`}>Detected count</span><b className={`mt-1 block text-xl ${light ? 'text-emerald-700' : 'text-emerald-400'}`}>67</b></div>
+                  <div className={`rounded-2xl p-3 ${light ? 'bg-[#f3f0fc]' : 'bg-white/[.06]'}`}><span className={`block text-[10px] ${light ? 'text-slate-600' : 'text-slate-400'}`}>Detected count</span><b className={`mt-1 block text-xl ${light ? 'text-emerald-700' : 'text-emerald-400'}`}>{labelCount === null ? "—" : labelCount.toLocaleString()}</b></div>
                   <div className={`rounded-2xl p-3 ${light ? 'bg-[#f3f0fc]' : 'bg-white/[.06]'}`}><span className={`block text-[10px] ${light ? 'text-slate-600' : 'text-slate-400'}`}>Sample weight</span><b className={`mt-1 block text-xl ${light ? 'text-[#191a31]' : 'text-white'}`}>25 g</b></div>
                   <div className={`rounded-2xl p-3 ${light ? 'bg-[#f3f0fc]' : 'bg-white/[.06]'}`}><span className={`block text-[10px] ${light ? 'text-slate-600' : 'text-slate-400'}`}>Processing</span><b className={`mt-1 block text-xl ${light ? 'text-violet-700' : 'text-violet-200'}`}>&lt;30s</b></div>
                 </div>
-                <p className={`mt-3 px-1 text-[10px] leading-5 ${light ? 'text-slate-600' : 'text-slate-500'}`}>Preview uses the 67 annotations supplied for this exact sample image. The markers visualize labels; they are not a new model inference.</p>
+                <p className={`mt-3 px-1 text-[10px] leading-5 ${light ? 'text-slate-600' : 'text-slate-500'}`}>Preview count is calculated from the non-empty rows in the supplied YOLO label file. The markers visualize ground-truth labels; they are not a new model inference.</p>
               </div>
               <div className="reveal space-y-4">
                 {[{n:'01',title:'Capture a short burst',desc:'Take multiple photos to give the app options for a clear sample.'},{n:'02',title:'Pick the best image',desc:'Review the burst and use the image best suited for counting.'},{n:'03',title:'Inspect every marker',desc:'See detections over the photo and review the total before saving.'},{n:'04',title:'Save and track growth',desc:'Organize individual records or batches and compare count-to-weight trends over days.'}].map(item=><div key={item.n} className={`flex gap-4 rounded-2xl border p-4 sm:p-5 ${light ? 'border-violet-200/80 bg-white/85 shadow-[0_8px_24px_rgba(72,52,125,.06)]' : 'border-white/[.07] bg-white/[.025]'}`}><span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl font-mono text-xs font-bold ${light ? 'bg-violet-100 text-violet-700' : 'bg-violet-400/10 text-violet-200'}`}>{item.n}</span><div><h3 className={`font-display font-bold ${light ? 'text-[#191a31]' : 'text-white'}`}>{item.title}</h3><p className={`mt-1 text-xs leading-6 ${light ? 'text-slate-600' : 'text-slate-400'}`}>{item.desc}</p></div></div>)}
